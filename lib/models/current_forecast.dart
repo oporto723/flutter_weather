@@ -1,3 +1,4 @@
+// Current Forecast Model
 class CurrentForecast {
   String name;
   Main mainInfo;
