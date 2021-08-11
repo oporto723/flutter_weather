@@ -1,6 +1,7 @@
 # flutter_weather
 
-A new Flutter project.
+A Weather Flutter APP.
+Currently only will be available for Android
 
 ## Getting Started
 
