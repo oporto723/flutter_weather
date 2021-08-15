@@ -36,15 +36,13 @@ class Main {
   double feelsLike;
   double tempMin;
   double tempMax;
-  double presure;
-  double humidity;
+  int humidity;
 
   Main(
       {required this.temp,
       required this.feelsLike,
       required this.tempMin,
       required this.tempMax,
-      required this.presure,
       required this.humidity});
 
   factory Main.fromJson(Map<String, dynamic> json) {
@@ -52,7 +50,6 @@ class Main {
     final feelsLike = json['feels_like'];
     final tempMin = json['temp_min'];
     final tempMax = json['temp_max'];
-    final presure = json['presure'];
     final humidity = json['humidity'];
 
     return Main(
@@ -60,7 +57,6 @@ class Main {
         feelsLike: feelsLike,
         tempMin: tempMin,
         tempMax: tempMax,
-        presure: presure,
         humidity: humidity);
   }
 }
