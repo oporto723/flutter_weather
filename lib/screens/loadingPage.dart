@@ -30,6 +30,7 @@ class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Todo: Create a new App bar
       appBar: AppBar(
         title: Text(''),
       ),
@@ -52,6 +53,7 @@ class _LoadingPageState extends State<LoadingPage> {
             case ConnectionState.done:
               return HomePage(
                 finalPosition: _finalPosition,
+                currentForecast: _currentForecast,
               );
           }
         },
