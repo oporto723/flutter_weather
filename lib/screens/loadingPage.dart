@@ -64,12 +64,13 @@ class _LoadingPageState extends State<LoadingPage> {
 // Get the current Position
   Future<Position> _getLocation() async {
     var location = await _geolocator.getCurentLocation();
-    await Future.delayed(Duration(seconds: 2)).then((value) {
+    {
       setState(() {
         _finalPosition = location;
         _getCurrentForecast();
       });
-    });
+    }
+    await Future.delayed(Duration(seconds: 2)).then((value) {});
     return location;
   }
 

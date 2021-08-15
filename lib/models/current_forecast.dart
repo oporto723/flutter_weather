@@ -76,15 +76,24 @@ class Wind {
 }
 
 class WeatherInfo {
+  int id;
+  String main;
   String description;
   String icon;
 
-  WeatherInfo({required this.description, required this.icon});
+  WeatherInfo(
+      {required this.id,
+      required this.main,
+      required this.description,
+      required this.icon});
 
   factory WeatherInfo.fromJson(Map<String, dynamic> json) {
     final description = json['description'];
     final icon = json['icon'];
+    final id = json['id'];
+    final main = json['main'];
 
-    return WeatherInfo(description: description, icon: icon);
+    return WeatherInfo(
+        description: description, icon: icon, id: id, main: main);
   }
 }
