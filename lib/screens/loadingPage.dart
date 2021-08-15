@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather/models/current_forecast.dart';
 import 'package:flutter_weather/services/geolocator.dart';
 import 'package:flutter_weather/services/openweather.dart';
+import 'package:flutter_weather/widgets/appBar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'homePage.dart';
 
@@ -31,8 +32,9 @@ class _LoadingPageState extends State<LoadingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Todo: Create a new App bar
-      appBar: AppBar(
-        title: Text(''),
+      // Todo: Create a new Drawer
+      appBar: CustomAppBar(
+        height: kToolbarHeight,
       ),
       body: FutureBuilder<Position>(
         future: _currentPosition,

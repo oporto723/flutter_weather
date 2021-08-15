@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatefulWidget {
-  CustomAppBar({Key? key}) : super(key: key);
+// Todo:  Maybe better to be Stateless Widget
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  CustomAppBar({Key? key, required this.height}) : super(key: key);
+
+  final double height;
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
+
+  @override
+  Size get preferredSize => new Size.fromHeight(height);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    return new AppBar();
+    return new AppBar(
+      backgroundColor: Colors.amberAccent,
+      elevation: 0,
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              //Scaffold.of(context).openDrawer();
+            },
+          );
+        },
+      ),
+      title: Text('Weather Forecast'),
+    );
   }
 }
