@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:flutter_weather/models/current_forecast.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class OpenweatherService {
-  final String appid = '1255f69081bf4430032a8042eb7b96b7';
+  final String appid = dotenv.get('OPENWEATHER_KEY');
   final String units = 'metric';
 
   // Get the Forecast introducing the city
