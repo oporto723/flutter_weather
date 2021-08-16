@@ -15,13 +15,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final String iconUrl = 'http://openweathermap.org/img/w/';
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Center(
         child: Container(
           color: Colors.amber[100],
-          child: Text(widget.currentForecast.name.toString()),
+          child: Image.network(
+              iconUrl + widget.currentForecast.weatherInfo.icon + '.png'),
         ),
       ),
     );
