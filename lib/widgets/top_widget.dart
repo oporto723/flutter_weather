@@ -9,7 +9,6 @@ class TopWidget extends StatelessWidget {
   }) : super(key: key);
 
   final double maxWidth;
-
   final HomePage widget;
 
   @override
@@ -20,18 +19,56 @@ class TopWidget extends StatelessWidget {
           width: maxWidth,
           child: Column(
             children: [
-              Expanded(
-                flex: 3,
-                child: Icon(
-                  Icons.wb_cloudy,
-                  color: Colors.blueAccent,
-                  size: MediaQuery.of(context).size.aspectRatio * 300,
-                ),
-              ),
+              IconWidget(),
               TemperatureWidget(widget: widget),
               CityWidget(widget: widget),
             ],
           )),
+    );
+  }
+}
+
+// Widget to show the top weather Icon
+class IconWidget extends StatelessWidget {
+  const IconWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 3,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: Icon(
+          Icons.wb_sunny,
+          color: Colors.orangeAccent,
+          //size: MediaQuery.of(context).size.height,
+        ),
+      ),
+    );
+  }
+}
+
+// Widget to show tepmperature
+class TemperatureWidget extends StatelessWidget {
+  const TemperatureWidget({
+    Key? key,
+    required this.widget,
+  }) : super(key: key);
+
+  final HomePage widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: FittedBox(
+        fit: BoxFit.fill,
+        child: Text(
+          ' ' + widget.currentForecast.mainInfo.temp.round().toString() + '°',
+        ),
+      ),
     );
   }
 }
@@ -51,35 +88,9 @@ class CityWidget extends StatelessWidget {
       flex: 1,
       child: Center(
         child: Container(
+            alignment: Alignment.topCenter,
             child: Text(widget.currentForecast.name,
                 style: TextStyle(fontSize: 20))),
-      ),
-    );
-  }
-}
-
-// Widget to show tepmperature
-class TemperatureWidget extends StatelessWidget {
-  const TemperatureWidget({
-    Key? key,
-    required this.widget,
-  }) : super(key: key);
-
-  final HomePage widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        padding: EdgeInsets.zero,
-        margin: EdgeInsets.zero,
-        child: FittedBox(
-          fit: BoxFit.fill,
-          child: Text(
-            ' ' + widget.currentForecast.mainInfo.temp.round().toString() + '°',
-          ),
-        ),
       ),
     );
   }
