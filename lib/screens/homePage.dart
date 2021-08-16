@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather/models/current_forecast.dart';
+import 'package:flutter_weather/widgets/middle_widget.dart';
 import 'package:flutter_weather/widgets/top_widget.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -21,17 +22,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final double maxWidth = MediaQuery.of(context).size.width;
+    List<Color> _colors = [Color(0xFFED6161), Color(0xFF19557B)];
+    final double smallContainerWidth = MediaQuery.of(context).size.width * 0.28;
 
     return Column(children: <Widget>[
       TopWidget(maxWidth: maxWidth, widget: widget),
-      Expanded(
-          child: Container(
-        color: Colors.yellow,
-      )),
+      MiddleWidget(
+          smallContainerWidth: smallContainerWidth,
+          colors: _colors,
+          widget: widget),
       Expanded(
           flex: 2,
           child: Container(
-            color: Colors.blue,
+            color: Colors.white,
           )),
     ]);
   }

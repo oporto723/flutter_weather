@@ -17,19 +17,25 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return new AppBar(
-      backgroundColor: Colors.amberAccent,
+      backgroundColor: Colors.white,
       elevation: 0,
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
             onPressed: () {
               //Scaffold.of(context).openDrawer();
             },
           );
         },
       ),
-      title: Text('Weather Forecast'),
+      title: Text(
+        'Weather Forecast',
+        style: TextStyle(color: Colors.black),
+      ),
     );
   }
 }

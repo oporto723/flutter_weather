@@ -16,6 +16,7 @@ class TopWidget extends StatelessWidget {
     return Expanded(
       flex: 2,
       child: Container(
+          color: Colors.white,
           width: maxWidth,
           child: Column(
             children: [
