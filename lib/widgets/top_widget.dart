@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather/screens/homePage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TopWidget extends StatelessWidget {
   const TopWidget({
@@ -89,9 +90,10 @@ class CityWidget extends StatelessWidget {
       flex: 1,
       child: Center(
         child: Container(
-            alignment: Alignment.topCenter,
-            child: Text(widget.currentForecast.name,
-                style: TextStyle(fontSize: 20))),
+          alignment: Alignment.topCenter,
+          child: Text(widget.currentForecast.name,
+              style: GoogleFonts.balooPaaji(fontSize: 25)),
+        ),
       ),
     );
   }

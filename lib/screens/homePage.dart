@@ -22,15 +22,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final double maxWidth = MediaQuery.of(context).size.width;
-    List<Color> _colors = [Color(0xFFED6161), Color(0xFF19557B)];
-    final double smallContainerWidth = MediaQuery.of(context).size.width * 0.28;
 
     return Column(children: <Widget>[
       TopWidget(maxWidth: maxWidth, widget: widget),
-      MiddleWidget(
-          smallContainerWidth: smallContainerWidth,
-          colors: _colors,
-          widget: widget),
+      MiddleWidget(widget: widget),
       Expanded(
           flex: 2,
           child: Container(

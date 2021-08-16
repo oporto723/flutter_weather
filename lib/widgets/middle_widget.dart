@@ -4,18 +4,16 @@ import 'package:flutter_weather/screens/homePage.dart';
 class MiddleWidget extends StatelessWidget {
   const MiddleWidget({
     Key? key,
-    required this.smallContainerWidth,
-    required List<Color> colors,
     required this.widget,
-  })  : _colors = colors,
-        super(key: key);
+  }) : super(key: key);
 
-  final double smallContainerWidth;
-  final List<Color> _colors;
   final HomePage widget;
 
   @override
   Widget build(BuildContext context) {
+    List<Color> _colors = [Color(0xFFED6161), Color(0xFF19557B)];
+    final double smallContainerWidth = MediaQuery.of(context).size.width * 0.28;
+
     return Expanded(
       child: Container(
         child: Row(
