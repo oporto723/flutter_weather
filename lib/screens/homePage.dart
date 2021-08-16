@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather/models/current_forecast.dart';
+import 'package:flutter_weather/widgets/top_widget.dart';
 import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,14 +20,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Center(
-        child: Container(
-          color: Colors.amber[100],
-          child: Image.network(
-              iconUrl + widget.currentForecast.weatherInfo.icon + '.png'),
-        ),
-      ),
-    );
+    final double maxWidth = MediaQuery.of(context).size.width;
+
+    return Column(children: <Widget>[
+      TopWidget(maxWidth: maxWidth, widget: widget),
+      Expanded(
+          child: Container(
+        color: Colors.yellow,
+      )),
+      Expanded(
+          flex: 2,
+          child: Container(
+            color: Colors.blue,
+          )),
+    ]);
   }
 }
