@@ -11,7 +11,7 @@ class MiddleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Color> _colors = [Color(0xFFED6161), Color(0xFF19557B)];
+    List<Color> _colors = [Color(0xFF0b65dd), Color(0xFF3f8a8f)];
     final double smallContainerWidth = MediaQuery.of(context).size.width * 0.28;
 
     return Expanded(

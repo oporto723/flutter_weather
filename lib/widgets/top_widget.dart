@@ -21,7 +21,9 @@ class TopWidget extends StatelessWidget {
           width: maxWidth,
           child: Column(
             children: [
-              IconWidget(),
+              IconWidget(
+                widget: widget,
+              ),
               TemperatureWidget(widget: widget),
               CityWidget(widget: widget),
             ],
@@ -34,21 +36,21 @@ class TopWidget extends StatelessWidget {
 class IconWidget extends StatelessWidget {
   const IconWidget({
     Key? key,
+    required this.widget,
   }) : super(key: key);
+
+  final HomePage widget;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 3,
-      child: FittedBox(
-        fit: BoxFit.fill,
-        child: Icon(
-          Icons.wb_sunny,
-          color: Colors.orangeAccent,
-          //size: MediaQuery.of(context).size.height,
-        ),
-      ),
-    );
+        flex: 3,
+        child: Image(
+          image: AssetImage(widget.weatherIcon),
+          fit: BoxFit.fill,
+        )
+        //size: MediaQuery.of(context).size.height,
+        );
   }
 }
 
@@ -69,6 +71,7 @@ class TemperatureWidget extends StatelessWidget {
         fit: BoxFit.fill,
         child: Text(
           ' ' + widget.currentForecast.mainInfo.temp.round().toString() + '°',
+          style: GoogleFonts.geostar(),
         ),
       ),
     );
@@ -92,7 +95,7 @@ class CityWidget extends StatelessWidget {
         child: Container(
           alignment: Alignment.topCenter,
           child: Text(widget.currentForecast.name,
-              style: GoogleFonts.balooPaaji(fontSize: 25)),
+              style: GoogleFonts.lato(fontSize: 25)),
         ),
       ),
     );

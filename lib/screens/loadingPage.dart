@@ -21,6 +21,7 @@ class _LoadingPageState extends State<LoadingPage> {
   late Position _finalPosition;
   late Future<Position> _currentPosition;
   late CurrentForecast _currentForecast;
+  late String weatherIcon;
 
   @override
   void initState() {
@@ -56,6 +57,7 @@ class _LoadingPageState extends State<LoadingPage> {
               return HomePage(
                 finalPosition: _finalPosition,
                 currentForecast: _currentForecast,
+                weatherIcon: weatherIcon,
               );
           }
         },
@@ -81,10 +83,49 @@ class _LoadingPageState extends State<LoadingPage> {
     var forecast = await _openWeather.getWeatherByCoordinates(
         _finalPosition.latitude.toString(),
         _finalPosition.longitude.toString());
-    print(forecast.name.toString());
     setState(() {
       _currentForecast = forecast;
-      print(_currentForecast.mainInfo.tempMax.toString());
+      getWeatherIcon(forecast);
     });
+  }
+
+  void getWeatherIcon(CurrentForecast forecast) {
+    switch (forecast.weatherInfo.main) {
+      case 'Clouds':
+        {
+          weatherIcon = 'assets/images/scatered_clouds.png';
+        }
+        break;
+      case 'Thunderstorm':
+        {
+          weatherIcon = 'assets/images/storm.png';
+        }
+        break;
+      case 'Drizzle':
+        {
+          weatherIcon = 'assets/images/shower_rain.png';
+        }
+        break;
+      case 'Rain':
+        {
+          weatherIcon = 'assets/images/rain.png';
+        }
+        break;
+      case 'Snow':
+        {
+          weatherIcon = 'assets/images/snow.png';
+        }
+        break;
+      case 'Clear':
+        {
+          weatherIcon = 'assets/images/sun.png';
+        }
+        break;
+      default:
+        {
+          weatherIcon = 'assets/images/fog.png';
+        }
+        break;
+    }
   }
 }

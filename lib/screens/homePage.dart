@@ -6,11 +6,15 @@ import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatefulWidget {
   HomePage(
-      {Key? key, required this.finalPosition, required this.currentForecast})
+      {Key? key,
+      required this.finalPosition,
+      required this.currentForecast,
+      required this.weatherIcon})
       : super(key: key);
 
   final Position finalPosition;
   final CurrentForecast currentForecast;
+  final String weatherIcon;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -24,7 +28,10 @@ class _HomePageState extends State<HomePage> {
     final double maxWidth = MediaQuery.of(context).size.width;
 
     return Column(children: <Widget>[
-      TopWidget(maxWidth: maxWidth, widget: widget),
+      TopWidget(
+        maxWidth: maxWidth,
+        widget: widget,
+      ),
       MiddleWidget(widget: widget),
       Expanded(
           flex: 2,
