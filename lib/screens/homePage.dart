@@ -36,7 +36,30 @@ class _HomePageState extends State<HomePage> {
       Expanded(
           flex: 2,
           child: Container(
-            color: Colors.white,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+              color: Colors.grey[200],
+            ),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 15),
+                  child: Text(
+                    'Aditional information: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Row(
+                  children: [Text('data'), Text('data'), Text('data')],
+                ),
+                Row(
+                  children: [Text('data'), Text('data'), Text('data')],
+                ),
+              ],
+            ),
           )),
     ]);
   }

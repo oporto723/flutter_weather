@@ -70,8 +70,8 @@ class TemperatureWidget extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.fill,
         child: Text(
-          ' ' + widget.currentForecast.mainInfo.temp.round().toString() + '°',
-          style: GoogleFonts.geostar(),
+          ' ' + widget.currentForecast.mainInfo.temp.toString() + '°',
+          style: GoogleFonts.lato(),
         ),
       ),
     );
