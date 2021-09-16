@@ -4,12 +4,14 @@ class CurrentForecast {
   Main mainInfo;
   Wind windInfo;
   WeatherInfo weatherInfo;
+  Sys systemInfo;
 
   CurrentForecast(
       {required this.name,
       required this.mainInfo,
       required this.weatherInfo,
-      required this.windInfo});
+      required this.windInfo,
+      required this.systemInfo});
 
   factory CurrentForecast.fromJson(Map<String, dynamic> json) {
     final name = json['name'];
@@ -23,11 +25,15 @@ class CurrentForecast {
     final weatherInfoJson = json['weather'][0];
     final weatherInfo = WeatherInfo.fromJson(weatherInfoJson);
 
+    final systemInfoJson = json['sys'];
+    final systemInfo = Sys.fromJson(systemInfoJson);
+
     return CurrentForecast(
         name: name,
         mainInfo: mainInfo,
         windInfo: windInfo,
-        weatherInfo: weatherInfo);
+        weatherInfo: weatherInfo,
+        systemInfo: systemInfo);
   }
 }
 
@@ -76,15 +82,40 @@ class Wind {
 }
 
 class WeatherInfo {
+  int id;
+  String main;
   String description;
   String icon;
 
-  WeatherInfo({required this.description, required this.icon});
+  WeatherInfo(
+      {required this.id,
+      required this.main,
+      required this.description,
+      required this.icon});
 
   factory WeatherInfo.fromJson(Map<String, dynamic> json) {
     final description = json['description'];
     final icon = json['icon'];
+    final id = json['id'];
+    final main = json['main'];
 
-    return WeatherInfo(description: description, icon: icon);
+    return WeatherInfo(
+        description: description, icon: icon, id: id, main: main);
+  }
+}
+
+class Sys {
+  String country;
+  int sunrise;
+  int sunset;
+
+  Sys({required this.country, required this.sunrise, required this.sunset});
+
+  factory Sys.fromJson(Map<String, dynamic> json) {
+    final country = json['country'];
+    final sunrise = json['sunrise'];
+    final sunset = json['sunset'];
+
+    return Sys(country: country, sunrise: sunrise, sunset: sunset);
   }
 }

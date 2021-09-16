@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather/screens/loadingPage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'dart:async';
 
 Future<void> main() async {
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Weather Forecast',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: LoadingPage(),
     );
   }
