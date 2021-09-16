@@ -44,13 +44,12 @@ class IconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 3,
-        child: Image(
-          image: AssetImage(widget.weatherIcon),
-          fit: BoxFit.fill,
-        )
-        //size: MediaQuery.of(context).size.height,
-        );
+      flex: 3,
+      child: Image(
+        image: AssetImage(widget.weatherIcon),
+        fit: BoxFit.fill,
+      ),
+    );
   }
 }
 
@@ -70,7 +69,7 @@ class TemperatureWidget extends StatelessWidget {
       child: FittedBox(
         fit: BoxFit.fill,
         child: Text(
-          ' ' + widget.currentForecast.mainInfo.temp.toString() + '°',
+          ' ' + widget.currentForecast.mainInfo.temp.toStringAsFixed(1) + '°',
           style: GoogleFonts.lato(),
         ),
       ),
@@ -94,7 +93,10 @@ class CityWidget extends StatelessWidget {
       child: Center(
         child: Container(
           alignment: Alignment.topCenter,
-          child: Text(widget.currentForecast.name,
+          child: Text(
+              widget.currentForecast.name +
+                  ', ' +
+                  widget.currentForecast.systemInfo.country,
               style: GoogleFonts.lato(fontSize: 25)),
         ),
       ),

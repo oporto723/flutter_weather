@@ -5,6 +5,7 @@ import 'package:flutter_weather/services/openweather.dart';
 import 'package:flutter_weather/widgets/appBar.dart';
 import 'package:geolocator/geolocator.dart';
 import 'homePage.dart';
+import 'package:intl/intl.dart';
 
 // Class where load all the Future Services
 class LoadingPage extends StatefulWidget {
