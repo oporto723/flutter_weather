@@ -42,4 +42,21 @@ class OpenweatherService {
     final json = jsonDecode(res.body);
     return CurrentForecast.fromJson(json);
   }
+
+  // Get the Forecast using the OneCall Api
+  Future<void> getWeatherOneCall(String latitude, String longitude) async {
+    final queryParameters = {
+      'lat': latitude,
+      'lon': longitude,
+      'appid': appid,
+      'units': units,
+    };
+    final uri = Uri.https(
+        'api.openweathermap.org', '/data/2.5/onecall', queryParameters);
+
+    final res = await http.get(uri);
+
+    final json = jsonDecode(res.body);
+    print(json);
+  }
 }
